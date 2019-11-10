@@ -11,7 +11,7 @@
 
 # Conexões
 
--> LCD
+* LCD
 
 VCC -> 5V
 
@@ -22,7 +22,7 @@ SDA -> P1.2
 SDL -> P1.2
 
 
--> JOYSTICK
+* JOYSTICK
 
 SW -> (fio solto)
 
@@ -35,7 +35,7 @@ VCC -> 5V
 GND -> GND
 
 
--> PARA TESTES SIMPLES EM CASA, 2 POTENCIÔMETROS (com uma protoboard e alguns jumpers)
+* PARA TESTES SIMPLES EM CASA, 2 POTENCIÔMETROS (com uma protoboard e alguns jumpers)
 
 (de frente para o direcional)
 
