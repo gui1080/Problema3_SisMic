@@ -21,6 +21,10 @@ void main(void)
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
     PM5CTL0 &= ~LOCKLPM5;
 
+    P6DIR |= BIT6;              // habilita saida no P6.6 (LED VERDE)
+    P6REN &= ~(BIT6);           // habilita resistor de pull up
+    P6OUT &= ~(BIT6);           // zera saida
+
     TB0CTL = (TBSSEL__ACLK | MC__UP |  TBCLR);   // Clock
 
     TB0CCR0 = 0x1000;     // se 0x8000 conta 1 segundo, pegamos 1/8 disso para termos 8 amostras em 1 segundo
@@ -83,4 +87,8 @@ __interrupt void TB0_CCR0_ISR(){
                 amostras_A1[contador_de_leituras] = adcRead(1);
                 contador_de_leituras++;
             }
+
+            P6OUT ^= BIT6;                         // a luz pisca para termos noção da frequencia da amostragem
+                                                    // Cada vez que a luz pisca, cada canal fez 8  leituras
+
 }
