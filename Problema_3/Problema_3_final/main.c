@@ -1,3 +1,11 @@
+/*
+ * Professor: Daniel Café
+ * Turma: D
+ * Alunos: Guilherme Braga (17/0162290) e Gabriel Matheus (17/0103498)
+ * Trabalho no Github: https://github.com/therealguib545/Problema3_SisMic
+ *
+ */
+
 #include <msp430.h>
 #include <stdio.h>
 #include <string.h>
