@@ -39,9 +39,9 @@ void main(void)
 
     TB0CCR0 = 0x1000;     // se 0x8000 conta 1 segundo, pegamos 1/8 disso para termos 8 amostras em 1 segundo
 
-    TBCCTL0 = CCIE; // permite vermos a interrup��o (local)
+    TBCCTL0 = CCIE; // permite vermos a interrupçãoo (local)
 
-    __enable_interrupt();           // habilitamos a interrupc�o do pragma vector
+    __enable_interrupt();           // habilitamos a interrupcao do pragma vector
 
     adcFinished = 0;
 
@@ -63,24 +63,22 @@ void main(void)
             // adicionando valor_voltagem_A0 e valor_voltagem_A1 para watch expressions, podemos ver o valor do input
 
             lcdResetaCursor();
-
-            //lcdPrint("A0: D,DDDV  HHHH\0");
-            //lcdPrint("A1: D,DDDV  HHHH\0");
-
+            
             lcdPrint("A0: ");
             float_para_string(valor_voltagem_A0, auxiliar_printa, 3);
             lcdPrint(auxiliar_printa);
             lcdPrint("V  ");
+            
             convert_deci_hex(valor_hex_A0, auxiliar_hex);
             lcdPrint(auxiliar_hex);
-
-            // aqui convertemos e printamos o valor em hexadecimal do que est� em valor_voltagem_A0 e A1 (floats). � para ser convertido em um char "auxiliar_printa2[4]"
-
+            
             lcdPrint("\n");
+            
             lcdPrint("A1: ");
             float_para_string(valor_voltagem_A1, auxiliar_printa, 3);
             lcdPrint(auxiliar_printa);
             lcdPrint("V  ");
+            
             convert_deci_hex(valor_hex_A1, auxiliar_hex);
             lcdPrint(auxiliar_hex);
 
@@ -103,7 +101,7 @@ __interrupt void TB0_CCR0_ISR(){
                 contador_de_leituras++;
             }
 
-            P6OUT ^= BIT6;                         // a luz pisca para termos no��o da frequencia da amostragem
-                                                    // Cada vez que a luz pisca, cada canal fez 8  leituras
+            P6OUT ^= BIT6;                         // a luz pisca para termos ideia da frequencia da amostragem
+                                                    // Cada vez que a luz pisca, cada canal fez 8 leituras
 
 }
