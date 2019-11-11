@@ -36,3 +36,28 @@ uint16_t adcRead(uint8_t pin)
     while(!(ADCIFG & ADCIFG0));                 // esperamos o final da conversão
     return ADCMEM0;                             // retornamos o espaço de memória com o resultado
 }
+
+void convert_deci_hex(int n_decimal, char* resposta){
+
+    static int quociente, restante;
+    unsigned int i, j = 0;
+    char dec_hex[4];
+
+    quociente = n_decimal;
+
+    while (quociente != 0)
+    {
+        restante = quociente % 16;
+        if (restante < 10)
+            dec_hex[j++] = 48 + restante;
+        else
+            dec_hex[j++] = 55 + restante;
+        quociente = quociente / 16;
+    }
+
+    for(i = 0; i < j; i++) {
+    resposta[i] = dec_hex[j - 1 - i];
+    }
+    resposta[j] = '\0';
+
+}
