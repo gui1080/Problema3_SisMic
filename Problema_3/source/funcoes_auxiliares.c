@@ -41,22 +41,22 @@ void convert_deci_hex(int n_decimal, char* resposta){
 
     static int quociente, restante;
     unsigned int i, j = 0;
-    char dec_hex[4];
+    char dec_hex[4];            // tamanho do que queremos converter
 
     quociente = n_decimal;
 
-    while (quociente != 0)
+    while (quociente != 0)          // fazemos para o numero inteiro
     {
-        restante = quociente % 16;
+        restante = quociente % 16;      // dividimos em potencias de 16
         if (restante < 10)
-            dec_hex[j++] = 48 + restante;
+            dec_hex[j++] = 48 + restante;     // colocamos de acordo com a tablea ascii
         else
             dec_hex[j++] = 55 + restante;
         quociente = quociente / 16;
     }
 
     for(i = 0; i < j; i++) {
-    resposta[i] = dec_hex[j - 1 - i];
+        resposta[i] = dec_hex[j - 1 - i];                           // colocamos a respostas no vetor
     }
     resposta[j] = '\0';
 
