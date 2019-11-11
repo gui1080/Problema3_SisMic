@@ -213,21 +213,21 @@ __interrupt void I2C_ISR()
 	switch (UCB0IV)
 	{
 		case UCIV__UCNACKIFG:				// Se recebeu um NACK
-			UCB0CTLW0 |= UCTXSTP;			// Pede um stop
+			UCB0CTLW0 |= UCTXSTP;			// stop
 			UCB0.status = 1;				// E avise o usuário do nack
 			break;
 
 		case UCIV__UCSTPIFG:				// Se enviou o stop
-			__low_power_mode_off_on_exit();	// volta para o programa principal
-			break;							// saindo do modo de baixo consumo
+			__low_power_mode_off_on_exit();		// saia da interrupção
+			break;							
 
 		case UCIV__UCRXIFG0:				// Se recebeu algo no buffer
 			UCB0.data = UCB0RXBUF;			// do usuário
 			break;
 
-		case UCIV__UCTXIFG0:				// Se for transmitir algo, pegue
-			UCB0TXBUF = UCB0.data;			// o byte da posição indicada  pelo
-			break;							// ponteiro do usuário
+		case UCIV__UCTXIFG0:				// Se for transmitir algo, pegue o byte pedido
+			UCB0TXBUF = UCB0.data;			
+			break;							// pelo usuário
 
 		default:
 			break;
