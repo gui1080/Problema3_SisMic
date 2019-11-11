@@ -15,6 +15,8 @@ uint16_t adcFinished;
 
 float volatile valor_voltagem_A0;
 float volatile valor_voltagem_A1;
+int volatile valor_hex_A0;
+int volatile valor_hex_A1;
 
 void main(void)
 {
@@ -39,6 +41,7 @@ void main(void)
     lcdInit();
 
     char auxiliar_printa[5];
+    char auxiliar_hex[4];
 
     while(1)
     {
@@ -46,6 +49,8 @@ void main(void)
             adcFinished = 0;
             valor_voltagem_A0 = valor_normalizado_vetor(amostras_A0);
             valor_voltagem_A1 = valor_normalizado_vetor(amostras_A1);
+            valor_hex_A0 = (int)(valor_voltagem_A0 * 1000);
+            valor_hex_A1 = (int)(valor_voltagem_A1 * 1000);
 
             // adicionando valor_voltagem_A0 e valor_voltagem_A1 para watch expressions, podemos ver o valor do input
 
@@ -58,16 +63,18 @@ void main(void)
             float_para_string(valor_voltagem_A0, auxiliar_printa, 3);
             lcdPrint(auxiliar_printa);
             lcdPrint("V  ");
+            convert_deci_hex(valor_hex_A0, auxiliar_hex);
+            lcdPrint(auxiliar_hex);
 
-            // aqui convertemos e printamos o valor em hexadecimal do que está em valor_voltagem_A0 e A1 (floats). É para ser convertido em um char "auxiliar_printa2[4]"
+            // aqui convertemos e printamos o valor em hexadecimal do que estï¿½ em valor_voltagem_A0 e A1 (floats). ï¿½ para ser convertido em um char "auxiliar_printa2[4]"
 
             lcdPrint("\n");
             lcdPrint("A1: ");
             float_para_string(valor_voltagem_A1, auxiliar_printa, 3);
             lcdPrint(auxiliar_printa);
             lcdPrint("V  ");
-
-
+            convert_deci_hex(valor_hex_A1, auxiliar_hex);
+            lcdPrint(auxiliar_hex);
 
             lcdPrint("\n");
         }
@@ -88,7 +95,7 @@ __interrupt void TB0_CCR0_ISR(){
                 contador_de_leituras++;
             }
 
-            P6OUT ^= BIT6;                         // a luz pisca para termos noção da frequencia da amostragem
+            P6OUT ^= BIT6;                         // a luz pisca para termos noï¿½ï¿½o da frequencia da amostragem
                                                     // Cada vez que a luz pisca, cada canal fez 8  leituras
 
 }
