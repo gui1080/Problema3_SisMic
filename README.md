@@ -24,7 +24,7 @@ SDA -> P1.2
 SDL -> P1.2
 
 
-* JOYSTICK
+* JOYSTICK (funciona com dois potenciômetros, retornando valores em X e em Y)
 
 SW -> (fio solto)
 
