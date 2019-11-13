@@ -13,7 +13,7 @@
 
 # Conexões
 
-* LCD
+* LCD (LCD com PCF, comunicação I2C)
 
 VCC -> 5V
 
