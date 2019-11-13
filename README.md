@@ -47,3 +47,5 @@ PINO À DIREITA -> 3V3
 
 PINO À ESQUERDA -> GND
 
+* Aí acompanhamos os resultados da conversão ADC pela visualização das variáveis
+
