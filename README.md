@@ -21,7 +21,7 @@ GND -> GND
 
 SDA -> P1.2
 
-SDL -> P1.2
+SCL -> P1.3
 
 
 * JOYSTICK (funciona com dois potenciômetros, retornando valores em X e em Y)
