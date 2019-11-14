@@ -32,7 +32,7 @@ X -> P1.0
 
 Y -> P1.1
 
-VCC -> 5V
+VCC -> 3.3V
 
 GND -> GND
 
