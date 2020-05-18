@@ -2,7 +2,7 @@
  * Professor: Daniel Café
  * Turma: D
  * Alunos: Guilherme Braga (17/0162290) e Gabriel Matheus (17/0103498)
- * Trabalho no Github: https://github.com/therealguib545/Problema3_SisMic
+ * Trabalho no Github: https://github.com/gui1080/Problema3_SisMic
  *
  */
 
